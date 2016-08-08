@@ -1,5 +1,5 @@
 app.service('ProjectService', ['$http',function($http){
-    var urlBase='http://192.168.1.7:53581/api/projects';
+    var urlBase='/api/projects';
         this.getAllProjects=function(){
            return $http.get(urlBase);
        };
