@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Bootstrap Core CSS -->
+    <link href="../public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="../public/js/jquery.min.js"></script>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../AngularModule/app.js"></script>
+    <script src="../Service/ProjectService.js"></script>
+    <script src="../controller/ProjectController.js"></script>
+
+</head>
+<body>
+    <div ng-app="projectModule" id="body">
+    <div ng-controller="ProjectController">
+        <h2>AngularJS CRUD Operations with WebAPI</h2>
+
+        <h3>List of Projects</h3>
+
+        <table ng-cloak class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="display: none;">ID</th>
+                    <th>ProjectName</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="items in projects">
+                    <td hidden="hidden">{{items.Id}}</td>
+                    <td>{{items.projectName}}</td>
+                    <td>
+                   <button ng-model="$scope.projects"  class="btn btn-primary"
+                   ng-click="edit(Project[$index])">Edit</button>
+                   <button ng-click="delete($index)" class="btn btn-primary">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        <!--    <tfoot>
+                <tr>
+                    <td colspan="6">
+                        <hr />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total :</td>
+                    <td></td>
+                    <td><label ng-bind="total() |
+                    currency:'&#8377;':2"></label></td>
+                    <td></td>
+                </tr>
+            </tfoot>-->
+        </table>
+        <br />
+        <div style="border-top: solid 2px #282828; width: 430px; height: 10px"> </div>
+
+        <div ng-show="Project.Id != '' ">
+            <div>
+                <h2>Update Projects</h2>
+            </div>
+            <div hidden="hidden">
+                <label for="id">Id</label>
+                <input type="text" data-ng-model="Project.Id" class="form-control" />
+            </div>
+            <div>
+                <label for="projectName" class="control-label">ProjectName</label>
+                <input type="text" data-ng-model="Project.projectName" class="form-control col-md-6" />
+            </div>
+
+
+            <br />
+            <div>
+                <button data-ng-click="update()" class="btn btn-primary">Update</button>
+                <button data-ng-click="cancel()" class="btn btn-primary">Cancel</button>
+            </div>
+        </div>
+
+        <div ng-hide="Project.Id != '' ">
+            <div>
+                <h2>Add New Projects</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                <label for="projectName" class="control-label">ProjectName</label>
+                </div>
+                <div class="col-md-6">
+                <input type="text" data-ng-model="Project.projectName" class="form-control " />
+                </div>
+            </div>
+
+
+            <br />
+            <div>
+                <button data-ng-click="save()" class="btn btn-primary">Save</button>
+                <button data-ng-click="clear()" class="btn btn-primary">Clear</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

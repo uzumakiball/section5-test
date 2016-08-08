@@ -1,0 +1,22 @@
+{
+  "libs": [
+    "{ternific}/libs/tern/defs/reserved",
+    "{ternific}/libs/tern/defs/lodash",
+    "browser",
+    "chai",
+    "sequelize",
+    "ecma5",
+    "ecma6",
+    "browser",
+    "jquery"
+  ],
+  "loadEagerly": [],
+  "async": true,
+  "plugins": {
+    "modules": {},
+    "requirejs": {},
+    "doc_comment": {},
+    "angular": {},
+    "es_modules": true
+  }
+}
